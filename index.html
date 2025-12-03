@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularios CIE Barcelona</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Estilos personalizados para el select */
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      padding-right: 2.5rem;
+      appearance: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto py-12 px-4 max-w-3xl">
+    <!-- Logo -->
+    <div class="flex justify-center mb-8">
+      <img src="assets/logo-20con-20texto-20color-281-29.png"
+           alt="CIE Barcelona"
+           class="h-24 w-auto">
+    </div>
+
+    <!-- Card Container -->
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <!-- Título -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Formularios de Contacto</h1>
+        <p class="text-gray-600">Selecciona el tipo de solicitud que deseas realizar</p>
+      </div>
+
+      <!-- Desplegable -->
+      <div class="mb-6">
+        <label for="form-selector" class="block text-sm font-medium text-gray-700 mb-2">
+          Tipo de solicitud *
+        </label>
+        <p class="text-xs text-blue-600 italic mb-3">SE DESPLIEGAN ESTAS OPCIONES</p>
+        <select id="form-selector"
+                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base">
+          <option value="">- Seleccionar opción -</option>
+          <option value="/consultoria">1 Solicito Presupuesto para Proceso de Consultoría Comercial para mi fuerza de ventas</option>
+          <option value="/certificacion">2 Me gustaría Certificarme como Coach de Ventas</option>
+          <option value="/formacion">3 Solicito Formación especializada para la fuerza de ventas de mi organización</option>
+          <option value="/licencias">4 Me interesa adquirir LICENCIA DE USO DEL TEST CIREXCO de medición de excelencia comercial</option>
+          <option value="/colaborar">5 Quisiera colaborar con CIE Barcelona y/o representar el programa en mi ciudad/país</option>
+          <option value="/otros">6 Otros: (recomendación, queja o sugerencia)</option>
+        </select>
+      </div>
+
+      <!-- Botón (opcional, se puede quitar si prefieres que redirija automáticamente) -->
+      <div class="text-center">
+        <button id="go-button" disabled
+                class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium px-8 py-3 rounded-md transition-colors">
+          Acceder al formulario
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-12 text-center text-gray-500 text-sm">
+      <p class="mb-2">© 2024 CIE Barcelona - Coaching Comercial</p>
+      <p>Todos los datos son gestionados únicamente con fines académicos y de promoción económica</p>
+    </div>
+  </div>
+
+  <script>
+    // Elementos
+    const selector = document.getElementById('form-selector');
+    const goButton = document.getElementById('go-button');
+
+    // Habilitar/deshabilitar botón según selección
+    selector.addEventListener('change', function() {
+      if (this.value) {
+        goButton.disabled = false;
+      } else {
+        goButton.disabled = true;
+      }
+    });
+
+    // Redirigir al hacer clic en el botón
+    goButton.addEventListener('click', function() {
+      const selectedUrl = selector.value;
+      if (selectedUrl) {
+        window.location.href = selectedUrl;
+      }
+    });
+
+    // Opción alternativa: Redirigir automáticamente al seleccionar (sin botón)
+    // Descomenta las siguientes líneas si prefieres redirección automática:
+    /*
+    selector.addEventListener('change', function() {
+      if (this.value) {
+        window.location.href = this.value;
+      }
+    });
+    */
+  </script>
+</body>
+</html>
