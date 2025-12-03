@@ -1,36 +1,28 @@
 {
-  "version": 2,
-  "public": true,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/certificacion",
+      "destination": "/formulario-certificacion.html"
     },
     {
-      "src": "/certificacion",
-      "dest": "/formulario-certificacion.html"
+      "source": "/consultoria",
+      "destination": "/formulario-consultoria.html"
     },
     {
-      "src": "/consultoria",
-      "dest": "/formulario-consultoria.html"
+      "source": "/formacion",
+      "destination": "/formulario-formacion.html"
     },
     {
-      "src": "/formacion",
-      "dest": "/formulario-formacion.html"
+      "source": "/licencias",
+      "destination": "/formulario-licencias.html"
     },
     {
-      "src": "/licencias",
-      "dest": "/formulario-licencias.html"
+      "source": "/colaborar",
+      "destination": "/formulario-colaborar.html"
     },
     {
-      "src": "/colaborar",
-      "dest": "/formulario-colaborar.html"
-    },
-    {
-      "src": "/otros",
-      "dest": "/formulario-otros.html"
+      "source": "/otros",
+      "destination": "/formulario-otros.html"
     }
   ],
   "headers": [
