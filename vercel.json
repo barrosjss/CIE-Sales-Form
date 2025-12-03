@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/certificacion",
+      "dest": "/formulario-certificacion.html"
+    },
+    {
+      "src": "/consultoria",
+      "dest": "/formulario-consultoria.html"
+    },
+    {
+      "src": "/formacion",
+      "dest": "/formulario-formacion.html"
+    },
+    {
+      "src": "/licencias",
+      "dest": "/formulario-licencias.html"
+    },
+    {
+      "src": "/colaborar",
+      "dest": "/formulario-colaborar.html"
+    },
+    {
+      "src": "/otros",
+      "dest": "/formulario-otros.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colaboración CIE Barcelona - CIE Barcelona</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Estilos adicionales para componentes */
+    input, select, textarea {
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    input[type="checkbox"] {
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* Grid responsive */
+    @media (min-width: 768px) {
+      .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Animación para mensajes */
+    .fade-in {
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto py-8 px-4 max-w-3xl">
+    <!-- Logo CIE Barcelona -->
+    <div class="flex justify-center mb-6">
+      <img src="assets/logo-20con-20texto-20color-281-29.png"
+           alt="Coaching Comercial CIE Barcelona"
+           class="h-20 w-auto">
+    </div>
+
+    <!-- Formulario Principal (Card) -->
+    <div id="form-card" class="bg-white rounded-lg shadow-md">
+      <!-- Header -->
+      <div class="p-6 border-b border-gray-200">
+        <h1 class="text-2xl font-bold text-gray-900">Solicitud de Colaboración CIE Barcelona</h1>
+        <p class="text-sm text-gray-600 italic mt-1">* Campos obligatorios</p>
+      </div>
+
+      <!-- Form Content -->
+      <form id="cie-form" class="p-6 space-y-8">
+
+        <!-- Datos de Contacto -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto *obligatorio</h3>
+
+          <div class="space-y-2">
+            <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico*</label>
+            <input type="email" id="email" name="email" required
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="first_name" class="block text-sm font-medium text-gray-700">Nombres*</label>
+              <input type="text" id="first_name" name="first_name" required
+                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="space-y-2">
+              <label for="last_name" class="block text-sm font-medium text-gray-700">Apellidos*</label>
+              <input type="text" id="last_name" name="last_name" required
+                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label for="whatsapp" class="block text-sm font-medium text-gray-700">WhatsApp de contacto*</label>
+            <input type="tel" id="whatsapp" name="whatsapp" required
+                   placeholder="+34 600 000 000"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <div class="space-y-2">
+            <label for="position" class="block text-sm font-medium text-gray-700">Cargo*</label>
+            <input type="text" id="position" name="position" required
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="city" class="block text-sm font-medium text-gray-700">Ciudad*</label>
+              <input type="text" id="city" name="city" required
+                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="space-y-2">
+              <label for="country" class="block text-sm font-medium text-gray-700">País*</label>
+              <select id="country" name="country" required
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="">Selecciona un país</option>
+                <option value="ES">España</option>
+                <option value="MX">México</option>
+                <option value="CO">Colombia</option>
+                <option value="AR">Argentina</option>
+                <option value="CL">Chile</option>
+                <option value="PE">Perú</option>
+                <option value="OTHER">Otro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Datos de Organización -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Sobre su organización</h3>
+
+          <div class="space-y-2">
+            <label for="company_name" class="block text-sm font-medium text-gray-700">Razón social Empresa o actividad actual*</label>
+            <input type="text" id="company_name" name="company_name" required
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <div class="space-y-2">
+            <label for="cif" class="block text-sm font-medium text-gray-700">CIF |</label>
+            <input type="text" id="cif" name="cif"
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <div class="space-y-2">
+            <label for="sector" class="block text-sm font-medium text-gray-700">Sector o actividad: industrial, servicios, inmobiliaria, seguros, tecnología, ...</label>
+            <input type="text" id="sector" name="sector"
+                   list="sectors-list"
+                   placeholder="Escribe o selecciona un sector..."
+                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <datalist id="sectors-list">
+              <option value="Industrial">
+              <option value="Servicios">
+              <option value="Inmobiliaria">
+              <option value="Seguros">
+              <option value="Tecnología">
+              <option value="Finanzas">
+              <option value="Salud">
+              <option value="Educación">
+              <option value="Comercio">
+              <option value="Transporte">
+              <option value="Construcción">
+              <option value="Turismo">
+              <option value="Energía">
+              <option value="Telecomunicaciones">
+              <option value="Automotriz">
+              <option value="Alimentación">
+              <option value="Legal">
+              <option value="Marketing">
+              <option value="Consultoría">
+              <option value="Otro">
+            </datalist>
+          </div>
+        </div>
+
+        <!-- Campo de Asunto -->
+        <div class="space-y-2">
+          <label for="subject" class="block text-sm font-medium text-gray-700">Asunto: agradecemos que describa un poco más su petición</label>
+          <textarea id="subject" name="subject" rows="4"
+                    placeholder="Describe tu petición..."
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+
+        <!-- Campos Adicionales -->
+        <div class="space-y-4">
+          <div class="space-y-2">
+            <label for="program_source" class="block text-sm font-medium text-gray-700">He conocido del programa a través de:</label>
+            <select id="program_source" name="program_source"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Selecciona una opción</option>
+              <option value="internet">1 Internet</option>
+              <option value="redes_sociales">2 Redes Sociales</option>
+              <option value="recomendacion">3 Recomendación</option>
+              <option value="miembro_cie">4 Soy empresario miembro CIE Barcelona</option>
+            </select>
+          </div>
+
+          <div class="flex items-start space-x-2">
+            <input type="checkbox" id="legal_privacy" name="legal_privacy"
+                   class="mt-1">
+            <label for="legal_privacy" class="text-sm leading-relaxed text-gray-700 cursor-pointer">
+              * CIE Barcelona gestiona sus datos únicamente con fines académicos y de promoción económica. Su información no será traspasada a terceros.
+            </label>
+          </div>
+        </div>
+
+        <!-- Botón Submit -->
+        <div class="flex justify-center pt-6 border-t border-gray-200">
+          <button type="submit"
+                  class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium px-12 py-2 rounded-md transition-colors">
+            ENVIAR
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Pantalla de Éxito (oculta por defecto) -->
+    <div id="success-screen" class="hidden bg-white rounded-lg shadow-md p-12 text-center fade-in">
+      <!-- Icono de Check Circle (SVG) -->
+      <svg class="w-20 h-20 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <h2 class="text-3xl text-green-600 font-bold mb-2">¡Solicitud enviada con éxito!</h2>
+      <p class="text-gray-600">Recibirás respuesta en 24-48h hábiles. Hemos enviado una copia a tu email.</p>
+    </div>
+
+    <!-- Pantalla de Error (oculta por defecto) -->
+    <div id="error-screen" class="hidden bg-white rounded-lg shadow-md p-12 text-center fade-in">
+      <h2 class="text-2xl text-red-600 font-bold mb-4">Hubo un problema. Por favor intenta nuevamente</h2>
+      <button onclick="resetForm()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-2 rounded-md transition-colors">
+        Reintentar
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Validación de campos
+    function validateForm() {
+      const form = document.getElementById('cie-form');
+
+      // Campos requeridos
+      const required = ['email', 'first_name', 'last_name', 'whatsapp', 'position', 'city', 'country', 'company_name'];
+
+      for (const field of required) {
+        const element = form.querySelector(`[name="${field}"]`);
+        const value = element ? element.value.trim() : '';
+
+        if (!value) {
+          alert(`El campo "${field}" es obligatorio`);
+          element.focus();
+          return false;
+        }
+      }
+
+      // Validar email
+      const email = form.querySelector('[name="email"]').value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Por favor ingresa un email válido');
+        form.querySelector('[name="email"]').focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    // Manejo del submit
+    document.getElementById('cie-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      // Obtener datos del formulario
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      data.timestamp = new Date().toISOString();
+      data.form_type = 'colaborar';
+
+      // Convertir checkbox a booleano
+      data.legal_privacy = document.getElementById('legal_privacy').checked;
+
+      // Log para debug (opcional, remover en producción)
+      console.log('Form Data:', JSON.stringify(data, null, 2));
+
+      // IMPORTANTE: El script de Clientify capturará el evento submit
+      // y procesará los datos automáticamente. No necesitas hacer fetch manual.
+
+      // Mostrar pantalla de éxito (simulado)
+      document.getElementById('form-card').classList.add('hidden');
+      document.getElementById('success-screen').classList.remove('hidden');
+    });
+
+    // Función para reintentar en caso de error
+    function resetForm() {
+      document.getElementById('error-screen').classList.add('hidden');
+      document.getElementById('form-card').classList.remove('hidden');
+    }
+
+    // <!-- ESPACIO PARA INSERTAR SCRIPT DE CLIENTIFY ARAÑA -->
+    // El script de la araña de Clientify se insertará aquí cuando configures la integración
+  </script>
+</body>
+</html>
