@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,9 @@
 
   <style>
     /* Estilos adicionales para componentes */
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       font-family: system-ui, -apple-system, sans-serif;
     }
 
@@ -34,8 +37,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hidden {
@@ -78,13 +88,13 @@
     }
   </style>
 </head>
+
 <body class="bg-gray-50">
   <div class="container mx-auto py-8 px-4 max-w-3xl">
     <!-- Logo CIE Barcelona -->
     <div class="flex justify-center mb-6">
-      <img src="assets/logo-20con-20texto-20color-281-29.png"
-           alt="Coaching Comercial CIE Barcelona"
-           class="h-20 w-auto">
+      <img src="assets/logo-20con-20texto-20color-281-29.png" alt="Coaching Comercial CIE Barcelona"
+        class="h-20 w-auto">
     </div>
 
     <!-- Formulario Principal (Card) -->
@@ -100,12 +110,10 @@
 
         <!-- Sección 1: Edición -->
         <div class="space-y-4">
-          <h3 class="text-xl font-semibold text-blue-600">Certificarme como Coach de Ventas</h3>
-
           <div class="space-y-2">
             <label for="edition" class="block text-sm font-medium text-gray-700">Edición: *</label>
             <select id="edition" name="edition" required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="">Selecciona una edición</option>
               <option value="streaming">Streaming</option>
               <option value="madrid">Madrid - ES</option>
@@ -129,39 +137,38 @@
           <div class="space-y-2">
             <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico*</label>
             <input type="email" id="email" name="email" required
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="space-y-2">
               <label for="first_name" class="block text-sm font-medium text-gray-700">Nombres*</label>
               <input type="text" id="first_name" name="first_name" required
-                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
             <div class="space-y-2">
               <label for="last_name" class="block text-sm font-medium text-gray-700">Apellidos*</label>
               <input type="text" id="last_name" name="last_name" required
-                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
           </div>
 
           <div class="space-y-2">
             <label for="whatsapp" class="block text-sm font-medium text-gray-700">whatsApp con indicativo*</label>
-            <input type="tel" id="whatsapp" name="whatsapp" required
-                   placeholder="+34 600 000 000"
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+34 600 000 000"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="space-y-2">
             <label for="city" class="block text-sm font-medium text-gray-700">Ciudad*</label>
             <input type="text" id="city" name="city" required
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="space-y-2">
             <label for="country" class="block text-sm font-medium text-gray-700">País*</label>
             <select id="country" name="country" required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="">Selecciona un país</option>
               <option value="ES">España</option>
               <option value="MX">México</option>
@@ -180,56 +187,60 @@
 
           <div class="space-y-2">
             <label for="linkedin" class="block text-sm font-medium text-gray-700">Linkedin</label>
-            <input type="url" id="linkedin" name="linkedin"
-                   placeholder="https://linkedin.com/in/tu-perfil"
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/tu-perfil"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="space-y-2">
-            <label for="company_name" class="block text-sm font-medium text-gray-700">Empresa o actividad actual*</label>
+            <label for="company_name" class="block text-sm font-medium text-gray-700">Empresa o actividad
+              actual*</label>
             <input type="text" id="company_name" name="company_name" required
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="space-y-2">
             <label for="sector" class="block text-sm font-medium text-gray-700">Sector o actividad</label>
             <div class="sector-dropdown-container">
-              <input type="text" id="sector" name="sector"
-                     placeholder="Escribe o selecciona un sector..."
-                     autocomplete="off"
-                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <input type="text" id="sector" name="sector" placeholder="Escribe o selecciona un sector..."
+                autocomplete="off"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
               <div id="sector-dropdown" class="sector-dropdown hidden"></div>
             </div>
           </div>
 
           <div class="space-y-2">
-            <label for="sales_position" class="block text-sm font-medium text-gray-700">Personal de ventas su cargo</label>
+            <label for="sales_position" class="block text-sm font-medium text-gray-700">Personal de ventas su
+              cargo</label>
             <input type="text" id="sales_position" name="sales_position"
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="space-y-2">
-            <label for="years_experience" class="block text-sm font-medium text-gray-700">Años de experiencia en ventas</label>
+            <label for="years_experience" class="block text-sm font-medium text-gray-700">Años de experiencia en
+              ventas</label>
             <input type="text" id="years_experience" name="years_experience"
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="space-y-2">
-            <label for="coaching_experience" class="block text-sm font-medium text-gray-700">Experiencia en coaching</label>
+            <label for="coaching_experience" class="block text-sm font-medium text-gray-700">Experiencia en
+              coaching</label>
             <input type="text" id="coaching_experience" name="coaching_experience"
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
           </div>
 
           <div class="space-y-2">
-            <label for="motivations" class="block text-sm font-medium text-gray-700">Algunas motivaciones para certificarme</label>
+            <label for="motivations" class="block text-sm font-medium text-gray-700">Algunas motivaciones para
+              certificarme</label>
             <textarea id="motivations" name="motivations" rows="3"
-                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
           </div>
 
           <div class="space-y-2">
-            <label for="program_source" class="block text-sm font-medium text-gray-700">He conocido del programa a través de:</label>
+            <label for="program_source" class="block text-sm font-medium text-gray-700">He conocido del programa a
+              través de:</label>
             <select id="program_source" name="program_source"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="">Selecciona una opción</option>
               <option value="internet">1 Internet</option>
               <option value="redes_sociales">2 Redes Sociales</option>
@@ -245,18 +256,22 @@
           <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">He leído:</h3>
 
           <div class="flex items-start space-x-2">
-            <input type="checkbox" id="legal_scholarship" name="legal_scholarship" required
-                   class="mt-1">
+            <input type="checkbox" id="legal_scholarship" name="legal_scholarship" required class="mt-1">
             <label for="legal_scholarship" class="text-sm leading-relaxed text-gray-700 cursor-pointer">
-              Esta petición no implica confirmación de plaza. CIE Barcelona hará una valoración técnica de la petición enviada y si aplica la persona aplicante a una beca la comunicará a la mayor brevedad posible (máximo 48h desde la recepción de esta petición). Si el dictamen es que NO procede beca, para poder avanzar el proceso, la persona solicitante recibe información de las diferentes formas de financiamiento de su proceso de certificación. Sí el dictamen es SI PROCEDE, se envía a la persona aplicante el procedimiento a seguir para hacer efectiva su plaza becada. Agradecemos de antemano su interés.
+              Esta petición no implica confirmación de plaza. CIE Barcelona hará una valoración técnica de la petición
+              enviada y si aplica la persona aplicante a una beca la comunicará a la mayor brevedad posible (máximo 48h
+              desde la recepción de esta petición). Si el dictamen es que NO procede beca, para poder avanzar el
+              proceso, la persona solicitante recibe información de las diferentes formas de financiamiento de su
+              proceso de certificación. Sí el dictamen es SI PROCEDE, se envía a la persona aplicante el procedimiento a
+              seguir para hacer efectiva su plaza becada. Agradecemos de antemano su interés.
             </label>
           </div>
 
           <div class="flex items-start space-x-2">
-            <input type="checkbox" id="legal_privacy" name="legal_privacy" required
-                   class="mt-1">
+            <input type="checkbox" id="legal_privacy" name="legal_privacy" required class="mt-1">
             <label for="legal_privacy" class="text-sm leading-relaxed text-gray-700 cursor-pointer">
-              * CIE Barcelona gestiona sus datos únicamente con fines académicos y de promoción económica. Su información no será traspasada a terceros.
+              * CIE Barcelona gestiona sus datos únicamente con fines académicos y de promoción económica. Su
+              información no será traspasada a terceros.
             </label>
           </div>
         </div>
@@ -264,7 +279,7 @@
         <!-- Botón Submit -->
         <div class="flex justify-center pt-6 border-t border-gray-200">
           <button type="submit"
-                  class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium px-12 py-2 rounded-md transition-colors">
+            class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium px-12 py-2 rounded-md transition-colors">
             ENVIAR
           </button>
         </div>
@@ -275,7 +290,8 @@
     <div id="success-screen" class="hidden bg-white rounded-lg shadow-md p-12 text-center fade-in">
       <!-- Icono de Check Circle (SVG) -->
       <svg class="w-20 h-20 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
       </svg>
       <h2 class="text-3xl text-green-600 font-bold mb-2">¡Solicitud enviada con éxito!</h2>
       <p class="text-gray-600">Recibirás respuesta en 24-48h hábiles. Hemos enviado una copia a tu email.</p>
@@ -284,7 +300,8 @@
     <!-- Pantalla de Error (oculta por defecto) -->
     <div id="error-screen" class="hidden bg-white rounded-lg shadow-md p-12 text-center fade-in">
       <h2 class="text-2xl text-red-600 font-bold mb-4">Hubo un problema. Por favor intenta nuevamente</h2>
-      <button onclick="resetForm()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-2 rounded-md transition-colors">
+      <button onclick="resetForm()"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-2 rounded-md transition-colors">
         Reintentar
       </button>
     </div>
@@ -333,7 +350,7 @@
     }
 
     // Manejo del submit
-    document.getElementById('cie-form').addEventListener('submit', function(e) {
+    document.getElementById('cie-form').addEventListener('submit', function (e) {
       e.preventDefault();
 
       if (!validateForm()) {
@@ -369,7 +386,7 @@
     }
 
     // Custom Dropdown para Sector
-    (function() {
+    (function () {
       const sectorInput = document.getElementById('sector');
       const sectorDropdown = document.getElementById('sector-dropdown');
 
@@ -412,7 +429,7 @@
           const option = document.createElement('div');
           option.className = 'sector-dropdown-option';
           option.textContent = sector;
-          option.addEventListener('click', function() {
+          option.addEventListener('click', function () {
             sectorInput.value = sector;
             sectorDropdown.classList.add('hidden');
           });
@@ -423,23 +440,23 @@
       }
 
       // Eventos del input
-      sectorInput.addEventListener('focus', function() {
+      sectorInput.addEventListener('focus', function () {
         showDropdown(this.value);
       });
 
-      sectorInput.addEventListener('input', function() {
+      sectorInput.addEventListener('input', function () {
         showDropdown(this.value);
       });
 
       // Cerrar al hacer clic fuera
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (!sectorInput.contains(e.target) && !sectorDropdown.contains(e.target)) {
           sectorDropdown.classList.add('hidden');
         }
       });
 
       // Navegación con teclado (opcional)
-      sectorInput.addEventListener('keydown', function(e) {
+      sectorInput.addEventListener('keydown', function (e) {
         const options = sectorDropdown.querySelectorAll('.sector-dropdown-option');
         const selected = sectorDropdown.querySelector('.sector-dropdown-option.selected');
         let index = Array.from(options).indexOf(selected);
@@ -478,4 +495,5 @@
     // })();
   </script>
 </body>
+
 </html>
