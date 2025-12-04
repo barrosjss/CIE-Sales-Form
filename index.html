@@ -59,281 +59,426 @@
 
     <!-- Main Card -->
     <div id="main-card" class="bg-white rounded-lg shadow-lg">
-      <!-- Formulario envuelve TODO para que Clientify detecte todos los campos -->
-      <form id="cie-form">
-        <!-- Header & Selector -->
-        <div class="p-8 border-b border-gray-200">
-          <div class="text-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">Formularios de Contacto</h1>
-            <p class="text-gray-600">Selecciona el tipo de solicitud que deseas realizar</p>
-          </div>
-
-          <div>
-            <label for="form-type-selector" class="block text-sm font-medium text-gray-700 mb-2">Tipo de solicitud
-              *</label>
-            <select id="form-type-selector" name="form_type_selector"
-              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base">
-              <option value="">- Seleccionar opción -</option>
-              <option value="consultoria">1 Solicito Presupuesto para Proceso de Consultoría Comercial para mi fuerza de
-                ventas</option>
-              <option value="certificacion">2 Me gustaría Certificarme como Coach de Ventas</option>
-              <option value="formacion">3 Solicito Formación especializada para la fuerza de ventas de mi organización
-              </option>
-              <option value="licencias">4 Me interesa adquirir LICENCIA DE USO DEL TEST CIREXCO de medición de
-                excelencia comercial</option>
-              <option value="colaborar">5 Quisiera colaborar con CIE Barcelona y/o representar el programa en mi
-                ciudad/país</option>
-              <option value="otros">6 Otros: (recomendación, queja o sugerencia)</option>
-            </select>
-          </div>
+      <!-- Header & Selector -->
+      <div class="p-8 border-b border-gray-200">
+        <div class="text-center mb-6">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Formularios de Contacto</h1>
+          <p class="text-gray-600">Selecciona el tipo de solicitud que deseas realizar</p>
         </div>
 
-        <!-- Form Content -->
-        <!-- NOTA: Quitamos la clase 'hidden' del HTML fuente para que el spider detecte los campos. 
-             Se ocultará via JS al cargar. -->
-        <div id="form-content-container" class="p-6 space-y-8">
+        <div>
+          <label for="form-type-selector" class="block text-sm font-medium text-gray-700 mb-2">Tipo de solicitud
+            *</label>
+          <select id="form-type-selector" name="form_type_selector"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base">
+            <option value="">- Seleccionar opción -</option>
+            <option value="consultoria">1 Solicito Presupuesto para Proceso de Consultoría Comercial para mi fuerza de
+              ventas</option>
+            <option value="certificacion">2 Me gustaría Certificarme como Coach de Ventas</option>
+            <option value="formacion">3 Solicito Formación especializada para la fuerza de ventas de mi organización
+            </option>
+            <option value="licencias">4 Me interesa adquirir LICENCIA DE USO DEL TEST CIREXCO de medición de excelencia
+              comercial</option>
+            <option value="colaborar">5 Quisiera colaborar con CIE Barcelona y/o representar el programa en mi
+              ciudad/país</option>
+            <option value="otros">6 Otros: (recomendación, queja o sugerencia)</option>
+          </select>
+        </div>
+      </div>
 
+      <!-- Container for all forms -->
+      <div id="forms-container" class="p-6">
+
+        <!-- 1. FORMULARIO CONSULTORIA -->
+        <form id="form-consultoria" class="space-y-8 hidden">
           <div class="border-b border-gray-100 bg-gray-50 -mx-6 -mt-6 p-6 mb-6">
-            <h2 id="form-dynamic-title" class="text-xl font-bold text-gray-800 text-center">Formulario de Contacto</h2>
+            <h2 class="text-xl font-bold text-gray-800 text-center">Solicitud de Consultoría Comercial</h2>
           </div>
+          <input type="hidden" name="form_type" value="consultoria">
 
-          <!-- Hidden input for form type (synced with selector) -->
-          <input type="hidden" id="form_type" name="form_type" value="">
-
-          <!-- Sección Específica: Edición (solo certificacion) -->
-          <!-- Quitamos 'hidden' del HTML fuente -->
-          <div id="section-edition" class="space-y-4">
-            <h3 class="text-xl font-semibold text-blue-600">Certificarme como Coach de Ventas</h3>
-            <div class="space-y-2">
-              <label for="edition" class="block text-sm font-medium text-gray-700">Edición: *</label>
-              <select id="edition" name="edition"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">Selecciona una edición</option>
-                <option value="streaming">Streaming</option>
-                <option value="madrid">Madrid - ES</option>
-                <option value="medellin">Medellín CO</option>
-                <option value="santiago">Santiago CL</option>
-                <option value="barcelona">Barcelona | ES</option>
-                <option value="panama">Panamá PA</option>
-                <option value="quito">Quito EC</option>
-                <option value="san_jose">San José Cr</option>
-                <option value="buenos_aires">Buenos Aires |</option>
-                <option value="bogota">Bogotá - CO</option>
-                <option value="guayaquil">Guayaquil |</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Datos de Contacto -->
+          <!-- Campos Comunes -->
           <div class="space-y-4">
-            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto *obligatorio</h3>
-            <div class="space-y-2">
-              <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico*</label>
-              <input type="email" id="email" name="email" required
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Correo
+                electrónico*</label><input type="email" name="email" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label for="first_name" class="block text-sm font-medium text-gray-700">Nombres*</label>
-                <input type="text" id="first_name" name="first_name" required
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Nombres*</label><input
+                  type="text" name="first_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
               </div>
-              <div class="space-y-2">
-                <label for="last_name" class="block text-sm font-medium text-gray-700">Apellidos*</label>
-                <input type="text" id="last_name" name="last_name" required
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Apellidos*</label><input
+                  type="text" name="last_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
               </div>
             </div>
-            <div class="space-y-2">
-              <label for="whatsapp" class="block text-sm font-medium text-gray-700">WhatsApp de contacto*</label>
-              <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+34 600 000 000"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div class="space-y-2">
-              <label for="position" class="block text-sm font-medium text-gray-700">Cargo*</label>
-              <input type="text" id="position" name="position" required
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">WhatsApp*</label><input
+                type="tel" name="whatsapp" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Cargo*</label><input
+                type="text" name="position" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label for="city" class="block text-sm font-medium text-gray-700">Ciudad*</label>
-                <input type="text" id="city" name="city" required
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              </div>
-              <div class="space-y-2">
-                <label for="country" class="block text-sm font-medium text-gray-700">País*</label>
-                <select id="country" name="country" required
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                  <option value="">Selecciona un país</option>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Ciudad*</label><input
+                  type="text" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">País*</label>
+                <select name="country" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  <option value="">Selecciona</option>
                   <option value="ES">España</option>
                   <option value="MX">México</option>
                   <option value="CO">Colombia</option>
-                  <option value="AR">Argentina</option>
-                  <option value="CL">Chile</option>
-                  <option value="PE">Perú</option>
                   <option value="OTHER">Otro</option>
                 </select>
               </div>
             </div>
           </div>
 
-          <!-- Perfil Profesional (solo certificacion) -->
-          <div id="section-profile" class="space-y-4">
-            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Perfil profesional</h3>
-            <div class="space-y-2">
-              <label for="linkedin" class="block text-sm font-medium text-gray-700">Linkedin</label>
-              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/tu-perfil"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-          </div>
-
-          <!-- Datos de Organización -->
           <div class="space-y-4">
-            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Sobre su organización</h3>
-            <div class="space-y-2">
-              <label for="company_name" class="block text-sm font-medium text-gray-700">Razón social Empresa o actividad
-                actual*</label>
-              <input type="text" id="company_name" name="company_name" required
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Organización</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Razón Social*</label><input
+                type="text" name="company_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
             </div>
-            <div class="space-y-2">
-              <label for="cif" class="block text-sm font-medium text-gray-700">CIF</label>
-              <input type="text" id="cif" name="cif"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div class="space-y-2">
-              <label for="sector" class="block text-sm font-medium text-gray-700">Sector o actividad</label>
-              <input type="text" id="sector" name="sector" list="sectors-list"
-                placeholder="Escribe o selecciona un sector..."
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <datalist id="sectors-list">
-                <option value="Industrial">
-                <option value="Servicios">
-                <option value="Inmobiliaria">
-                <option value="Seguros">
-                <option value="Tecnología">
-                <option value="Finanzas">
-                <option value="Salud">
-                <option value="Educación">
-                <option value="Comercio">
-                <option value="Transporte">
-                <option value="Construcción">
-                <option value="Turismo">
-                <option value="Energía">
-                <option value="Telecomunicaciones">
-                <option value="Automotriz">
-                <option value="Alimentación">
-                <option value="Legal">
-                <option value="Marketing">
-                <option value="Consultoría">
-                <option value="Otro">
-              </datalist>
-            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">CIF</label><input type="text"
+                name="cif" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Sector</label><input
+                type="text" name="sector" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
           </div>
 
-          <!-- Campos Específicos por Formulario -->
-          <div id="section-consultoria" class="space-y-4">
-            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Información de Consultoría</h3>
-            <div class="space-y-2">
-              <label for="sales_team_size" class="block text-sm font-medium text-gray-700">Número de personas que
-                componen su fuerza de ventas</label>
-              <input type="text" id="sales_team_size" name="sales_team_size"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-          </div>
-
-          <div id="section-certificacion-extra" class="space-y-4">
-            <div class="space-y-2">
-              <label for="sales_position" class="block text-sm font-medium text-gray-700">Personal de ventas su
-                cargo</label>
-              <input type="text" id="sales_position" name="sales_position"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div class="space-y-2">
-              <label for="years_experience" class="block text-sm font-medium text-gray-700">Años de experiencia en
-                ventas</label>
-              <input type="text" id="years_experience" name="years_experience"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div class="space-y-2">
-              <label for="coaching_experience" class="block text-sm font-medium text-gray-700">Experiencia en
-                coaching</label>
-              <input type="text" id="coaching_experience" name="coaching_experience"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div class="space-y-2">
-              <label for="motivations" class="block text-sm font-medium text-gray-700">Algunas motivaciones para
-                certificarme</label>
-              <textarea id="motivations" name="motivations" rows="3"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-            </div>
-          </div>
-
-          <div id="section-licencias" class="space-y-4">
-            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Información de Licencias</h3>
-            <div class="space-y-2">
-              <label for="license_quantity" class="block text-sm font-medium text-gray-700">Cantidad de
-                Licencias</label>
-              <input type="number" id="license_quantity" name="license_quantity" min="1"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-          </div>
-
-          <!-- Campo de Asunto -->
-          <div class="space-y-2">
-            <label for="subject" class="block text-sm font-medium text-gray-700">Asunto: agradecemos que describa un
-              poco más su petición</label>
-            <textarea id="subject" name="subject" rows="4" placeholder="Describe tu petición..."
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          </div>
-
-          <!-- Campos Adicionales -->
+          <!-- Específico Consultoría -->
           <div class="space-y-4">
-            <div class="space-y-2">
-              <label for="program_source" class="block text-sm font-medium text-gray-700">He conocido del programa a
-                través de:</label>
-              <select id="program_source" name="program_source"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">Selecciona una opción</option>
-                <option value="internet">1 Internet</option>
-                <option value="redes_sociales">2 Redes Sociales</option>
-                <option value="recomendacion">3 Recomendación</option>
-                <option value="miembro_cie">4 Soy empresario miembro CIE Barcelona</option>
-                <option value="miembro_jci">5 Soy Miembro JCI</option>
-              </select>
-            </div>
-
-            <!-- Checkbox Legal de Becas (solo certificacion) -->
-            <div id="section-legal-scholarship" class="flex items-start space-x-2">
-              <input type="checkbox" id="legal_scholarship" name="legal_scholarship" class="mt-1">
-              <label for="legal_scholarship" class="text-sm leading-relaxed text-gray-700 cursor-pointer">
-                Esta petición no implica confirmación de plaza. CIE Barcelona hará una valoración técnica de la petición
-                enviada y si aplica la persona aplicante a una beca la comunicará a la mayor brevedad posible (máximo
-                48h desde la recepción de esta petición). Si el dictamen es que NO procede beca, para poder avanzar el
-                proceso, la persona solicitante recibe información de las diferentes formas de financiamiento de su
-                proceso de certificación. Sí el dictamen es SI PROCEDE, se envía a la persona aplicante el procedimiento
-                a seguir para hacer efectiva su plaza becada. Agradecemos de antemano su interés.
-              </label>
-            </div>
-
-            <div class="flex items-start space-x-2">
-              <input type="checkbox" id="legal_privacy" name="legal_privacy" class="mt-1">
-              <label for="legal_privacy" class="text-sm leading-relaxed text-gray-700 cursor-pointer">
-                * CIE Barcelona gestiona sus datos únicamente con fines académicos y de promoción económica. Su
-                información no será traspasada a terceros.
-              </label>
-            </div>
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Detalles</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Tamaño fuerza
+                ventas</label><input type="text" name="sales_team_size"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Asunto</label><textarea
+                name="subject" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea></div>
           </div>
 
-          <!-- Botón Submit -->
           <div class="flex justify-center pt-6 border-t border-gray-200">
             <button type="submit"
-              class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium px-12 py-2 rounded-md transition-colors">
-              ENVIAR
-            </button>
+              class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-12 py-2 rounded-md">ENVIAR</button>
           </div>
-        </div>
-      </form>
+        </form>
+
+        <!-- 2. FORMULARIO CERTIFICACION -->
+        <form id="form-certificacion" class="space-y-8 hidden">
+          <div class="border-b border-gray-100 bg-gray-50 -mx-6 -mt-6 p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-800 text-center">Certificación Coach de Ventas</h2>
+          </div>
+          <input type="hidden" name="form_type" value="certificacion">
+
+          <!-- Específico Certificación (Edición) -->
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">Edición*</label>
+            <select name="edition" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              <option value="">Selecciona</option>
+              <option value="streaming">Streaming</option>
+              <option value="madrid">Madrid</option>
+              <option value="barcelona">Barcelona</option>
+            </select>
+          </div>
+
+          <!-- Campos Comunes -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Correo
+                electrónico*</label><input type="email" name="email" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Nombres*</label><input
+                  type="text" name="first_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Apellidos*</label><input
+                  type="text" name="last_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">WhatsApp*</label><input
+                type="tel" name="whatsapp" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Ciudad*</label><input
+                  type="text" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">País*</label>
+                <select name="country" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  <option value="">Selecciona</option>
+                  <option value="ES">España</option>
+                  <option value="MX">México</option>
+                  <option value="CO">Colombia</option>
+                  <option value="OTHER">Otro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Específico Certificación (Perfil) -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Perfil Profesional</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">LinkedIn</label><input
+                type="url" name="linkedin" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Empresa Actual*</label><input
+                type="text" name="company_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Sector</label><input
+                type="text" name="sector" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Años experiencia
+                ventas</label><input type="text" name="years_experience"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Motivaciones</label><textarea
+                name="motivations" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea></div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex items-start space-x-2">
+              <input type="checkbox" name="legal_scholarship" class="mt-1">
+              <label class="text-sm leading-relaxed text-gray-700">Acepto términos de becas</label>
+            </div>
+          </div>
+
+          <div class="flex justify-center pt-6 border-t border-gray-200">
+            <button type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-12 py-2 rounded-md">ENVIAR</button>
+          </div>
+        </form>
+
+        <!-- 3. FORMULARIO FORMACION -->
+        <form id="form-formacion" class="space-y-8 hidden">
+          <div class="border-b border-gray-100 bg-gray-50 -mx-6 -mt-6 p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-800 text-center">Solicitud de Formación Especializada</h2>
+          </div>
+          <input type="hidden" name="form_type" value="formacion">
+
+          <!-- Campos Comunes -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Correo
+                electrónico*</label><input type="email" name="email" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Nombres*</label><input
+                  type="text" name="first_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Apellidos*</label><input
+                  type="text" name="last_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">WhatsApp*</label><input
+                type="tel" name="whatsapp" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Cargo*</label><input
+                type="text" name="position" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Ciudad*</label><input
+                  type="text" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">País*</label>
+                <select name="country" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  <option value="">Selecciona</option>
+                  <option value="ES">España</option>
+                  <option value="MX">México</option>
+                  <option value="CO">Colombia</option>
+                  <option value="OTHER">Otro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Organización</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Razón Social*</label><input
+                type="text" name="company_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">CIF</label><input type="text"
+                name="cif" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Sector</label><input
+                type="text" name="sector" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+          </div>
+
+          <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Asunto</label><textarea
+              name="subject" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea></div>
+
+          <div class="flex justify-center pt-6 border-t border-gray-200">
+            <button type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-12 py-2 rounded-md">ENVIAR</button>
+          </div>
+        </form>
+
+        <!-- 4. FORMULARIO LICENCIAS -->
+        <form id="form-licencias" class="space-y-8 hidden">
+          <div class="border-b border-gray-100 bg-gray-50 -mx-6 -mt-6 p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-800 text-center">Adquisición Licencia TEST CIREXCO</h2>
+          </div>
+          <input type="hidden" name="form_type" value="licencias">
+
+          <!-- Campos Comunes -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Correo
+                electrónico*</label><input type="email" name="email" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Nombres*</label><input
+                  type="text" name="first_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Apellidos*</label><input
+                  type="text" name="last_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">WhatsApp*</label><input
+                type="tel" name="whatsapp" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Cargo*</label><input
+                type="text" name="position" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Ciudad*</label><input
+                  type="text" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">País*</label>
+                <select name="country" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  <option value="">Selecciona</option>
+                  <option value="ES">España</option>
+                  <option value="MX">México</option>
+                  <option value="CO">Colombia</option>
+                  <option value="OTHER">Otro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Organización</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Razón Social*</label><input
+                type="text" name="company_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">CIF</label><input type="text"
+                name="cif" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Sector</label><input
+                type="text" name="sector" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+          </div>
+
+          <!-- Específico Licencias -->
+          <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Cantidad Licencias</label><input
+              type="number" name="license_quantity" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+          <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Asunto</label><textarea
+              name="subject" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea></div>
+
+          <div class="flex justify-center pt-6 border-t border-gray-200">
+            <button type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-12 py-2 rounded-md">ENVIAR</button>
+          </div>
+        </form>
+
+        <!-- 5. FORMULARIO COLABORAR -->
+        <form id="form-colaborar" class="space-y-8 hidden">
+          <div class="border-b border-gray-100 bg-gray-50 -mx-6 -mt-6 p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-800 text-center">Solicitud de Colaboración</h2>
+          </div>
+          <input type="hidden" name="form_type" value="colaborar">
+
+          <!-- Campos Comunes -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Correo
+                electrónico*</label><input type="email" name="email" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Nombres*</label><input
+                  type="text" name="first_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Apellidos*</label><input
+                  type="text" name="last_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">WhatsApp*</label><input
+                type="tel" name="whatsapp" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Cargo*</label><input
+                type="text" name="position" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Ciudad*</label><input
+                  type="text" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">País*</label>
+                <select name="country" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  <option value="">Selecciona</option>
+                  <option value="ES">España</option>
+                  <option value="MX">México</option>
+                  <option value="CO">Colombia</option>
+                  <option value="OTHER">Otro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Organización</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Razón Social*</label><input
+                type="text" name="company_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">CIF</label><input type="text"
+                name="cif" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Sector</label><input
+                type="text" name="sector" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+          </div>
+
+          <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Asunto</label><textarea
+              name="subject" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea></div>
+
+          <div class="flex justify-center pt-6 border-t border-gray-200">
+            <button type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-12 py-2 rounded-md">ENVIAR</button>
+          </div>
+        </form>
+
+        <!-- 6. FORMULARIO OTROS -->
+        <form id="form-otros" class="space-y-8 hidden">
+          <div class="border-b border-gray-100 bg-gray-50 -mx-6 -mt-6 p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-800 text-center">Solicitud de Otros - Contacto</h2>
+          </div>
+          <input type="hidden" name="form_type" value="otros">
+
+          <!-- Campos Comunes -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Datos de persona contacto</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Correo
+                electrónico*</label><input type="email" name="email" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Nombres*</label><input
+                  type="text" name="first_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Apellidos*</label><input
+                  type="text" name="last_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+              </div>
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">WhatsApp*</label><input
+                type="tel" name="whatsapp" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Cargo*</label><input
+                type="text" name="position" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Ciudad*</label><input
+                  type="text" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+              <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">País*</label>
+                <select name="country" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                  <option value="">Selecciona</option>
+                  <option value="ES">España</option>
+                  <option value="MX">México</option>
+                  <option value="CO">Colombia</option>
+                  <option value="OTHER">Otro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold border-b border-gray-200 pb-2">Organización</h3>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Razón Social*</label><input
+                type="text" name="company_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">CIF</label><input type="text"
+                name="cif" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+            <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Sector</label><input
+                type="text" name="sector" class="w-full px-3 py-2 border border-gray-300 rounded-md"></div>
+          </div>
+
+          <div class="space-y-2"><label class="block text-sm font-medium text-gray-700">Asunto</label><textarea
+              name="subject" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea></div>
+
+          <div class="flex justify-center pt-6 border-t border-gray-200">
+            <button type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-12 py-2 rounded-md">ENVIAR</button>
+          </div>
+        </form>
+
+      </div>
     </div>
 
     <!-- Pantalla de Éxito -->
@@ -356,80 +501,47 @@
   </div>
 
   <script>
-    const formConfigs = {
-      consultoria: { title: 'Solicitud de Consultoría Comercial', sections: ['consultoria'] },
-      certificacion: { title: 'Certificación Coach de Ventas', sections: ['edition', 'profile', 'certificacion-extra', 'legal-scholarship'], required: ['edition'] },
-      formacion: { title: 'Solicitud de Formación Especializada', sections: [] },
-      licencias: { title: 'Adquisición Licencia TEST CIREXCO', sections: ['licencias'] },
-      colaborar: { title: 'Solicitud de Colaboración CIE Barcelona', sections: [] },
-      otros: { title: 'Solicitud de Otros - Contacto', sections: [] }
-    };
-
     const selector = document.getElementById('form-type-selector');
-    const formContent = document.getElementById('form-content-container');
-    const formTitle = document.getElementById('form-dynamic-title');
-    const formTypeInput = document.getElementById('form_type');
+    const formsContainer = document.getElementById('forms-container');
+    const successScreen = document.getElementById('success-screen');
+    const mainCard = document.getElementById('main-card');
 
-    // Inicialización: Ocultar todo al cargar
-    // Esto asegura que el usuario vea la UI correcta, pero el spider vea los campos en el HTML fuente
-    function initForm() {
-      formContent.classList.add('hidden');
-      document.querySelectorAll('[id^="section-"]').forEach(el => el.classList.add('hidden'));
+    // Inicialización: Ocultar todos los formularios al cargar
+    // IMPORTANTE: Los formularios existen en el HTML para que Clientify los detecte
+    // pero los ocultamos visualmente al usuario.
+    function hideAllForms() {
+      document.querySelectorAll('form').forEach(form => {
+        form.classList.add('hidden');
+      });
     }
 
-    // Ejecutar inicialización
-    initForm();
+    // Ejecutar al inicio
+    hideAllForms();
 
     selector.addEventListener('change', function () {
       const selectedType = this.value;
 
-      if (!selectedType) {
-        formContent.classList.add('hidden');
-        return;
+      hideAllForms();
+
+      if (selectedType) {
+        const selectedForm = document.getElementById(`form-${selectedType}`);
+        if (selectedForm) {
+          selectedForm.classList.remove('hidden');
+        }
       }
-
-      const config = formConfigs[selectedType];
-      formTitle.textContent = config.title;
-      formTypeInput.value = selectedType;
-
-      // Ocultar todas las secciones específicas
-      document.querySelectorAll('[id^="section-"]').forEach(el => el.classList.add('hidden'));
-
-      // Mostrar secciones correspondientes
-      config.sections.forEach(section => {
-        const el = document.getElementById(`section-${section}`);
-        if (el) el.classList.remove('hidden');
-      });
-
-      // Manejar campos requeridos dinámicamente
-      const editionSelect = document.getElementById('edition');
-      if (editionSelect) {
-        editionSelect.required = config.required?.includes('edition') || false;
-      }
-
-      // Mostrar contenido del formulario
-      formContent.classList.remove('hidden');
     });
 
-    // Manejar submit
-    document.getElementById('cie-form').addEventListener('submit', function (e) {
-      e.preventDefault();
+    // Manejar submit para todos los formularios
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
-      data.timestamp = new Date().toISOString();
-      data.legal_privacy = document.getElementById('legal_privacy').checked;
+        // Aquí Clientify capturará los datos automáticamente
+        console.log('Formulario enviado:', this.id);
 
-      const scholarship = document.getElementById('legal_scholarship');
-      if (!scholarship.parentElement.classList.contains('hidden')) {
-        data.legal_scholarship = scholarship.checked;
-      }
-
-      console.log('Form Data:', JSON.stringify(data, null, 2));
-
-      // IMPORTANTE: Clientify spider form capturará automáticamente el submit
-      document.getElementById('main-card').classList.add('hidden');
-      document.getElementById('success-screen').classList.remove('hidden');
+        mainCard.classList.add('hidden');
+        successScreen.classList.remove('hidden');
+      });
     });
   </script>
 
